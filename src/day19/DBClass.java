@@ -47,6 +47,7 @@ public class DBClass {
 		return result;
 	}
 	
+	
 	public Info selectOne(String id) {
 		String sql = "select * from newst where id='"+id+"'";
 		//String sql = "select * from newst where id=?";
@@ -93,9 +94,21 @@ public class DBClass {
 			e.printStackTrace();
 		}
 		
-		return list;
+		return list;			
+	}
+	public int delete(Info info) {
+		String sql ="delete from newst where id=?";
+		int result =0;
 		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, info.getId());
+			result = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
+		return result;
 	}
 	
 	

@@ -16,7 +16,8 @@ public class MainClass {
 			System.out.println("1.등록");
 			System.out.println("2.조회");
 			System.out.println("3.모든 목록");
-			System.out.println("4.종료");
+			System.out.println("4.삭제");
+			System.out.println("5.종료");
 			num= scan.nextInt();
 			switch(num) {
 			case 1: 
@@ -72,6 +73,17 @@ public class MainClass {
 				}
 				break;
 			case 4: 
+				System.out.println("삭제할 아이디 입력");
+				id = scan.next();
+				info.setId(id);
+				result = db.delete(info);
+				if(result ==1) {
+					System.out.println("삭제성공");
+				}else {
+					System.out.println("삭제실패");
+				}
+				break;
+			case 5: 
 				System.out.println("종료합니다");
 				System.exit(0);
 			}
